@@ -14,6 +14,12 @@ const config = {
 	vitePlugin: {
 		inspector: true,
 	},
+	onwarn: (warning, handler) => {
+		if (warning.code.startsWith('a11y-click-events-have-key-events')) return //svelte-json-tree throws this messages, until depency upgrade I'll hide those
+		handler(warning)
+	},
+	
+
 };
 
 export default config;
