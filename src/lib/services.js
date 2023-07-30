@@ -1,15 +1,13 @@
-import supabase_authentication_service from '$lib/providers/supabase/authentication'
-import supabase_database_service from '$lib/providers/supabase/database'
-import supabase_storage_service from '$lib/providers/supabase/storage'
+import authentication_service from '$provider/authentication'
+import database_service from '$provider/database'
+import storage_service from '$provider/storage'
 
-export const database = {
-  'SUPABASE': supabase_database_service
-}['SUPABASE']
+export const authentication = authentication_service
+export const database = database_service
+export const storage = storage_service
 
-export const authentication = {
-  'SUPABASE': supabase_authentication_service
-}['SUPABASE']
-
-export const storage = {
-  'SUPABASE': supabase_storage_service
-}['SUPABASE']
+export default {
+  authentication,
+  database,
+  storage
+}
